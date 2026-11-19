@@ -1,0 +1,49 @@
+name: Idea
+description: A video or research idea, or a tutorial request.
+title: "[idea] "
+labels: ["idea", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Ideas go to the research and video queue. No promise on timing. Do not include personal data.
+        Open questions are better asked in [Discussions](https://github.com/harperjohnsai/submissions/discussions).
+  - type: dropdown
+    id: kind
+    attributes:
+      label: Kind
+      options:
+        - Video idea
+        - Research idea
+        - Tutorial request
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: topic
+    attributes:
+      label: Topic
+      description: One line.
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: Why it matters
+      description: Who is affected, what is new or misunderstood about it.
+    validations:
+      required: true
+  - type: textarea
+    id: links
+    attributes:
+      label: Links (optional)
+      description: Public references. Defang any malicious URL.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: This contains no personal data and no files, and I understand it is public.
+          required: true

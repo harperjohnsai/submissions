@@ -1,0 +1,44 @@
+name: Correction
+description: Report an error in our published IOCs, rules or write-ups.
+title: "[correction] "
+labels: ["correction", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for checking our work. Corrections are reviewed by a human; confirmed errors are fixed and logged in the
+        repository changelog (we never edit a published claim silently).
+        If the item should not be discussed in public (for example, your own legitimate domain listed as an IOC), use the private channel in SECURITY.md.
+  - type: input
+    id: item
+    attributes:
+      label: Link to the item
+      description: File and line in harperjohnsai/detections, a gist, a ThreatFox or MalwareBazaar entry.
+    validations:
+      required: true
+  - type: textarea
+    id: wrong
+    attributes:
+      label: What is wrong
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence
+      description: Public links or a reproducible check (e.g. a rule that matches a clean file, with that file's SHA-256).
+    validations:
+      required: true
+  - type: textarea
+    id: fix
+    attributes:
+      label: Suggested fix (optional)
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: This contains no personal data, no stolen data and no files, and I understand it is public.
+          required: true

@@ -1,0 +1,72 @@
+name: Campaign lead
+description: A suspicious site, domain, URL, ad, video, app listing or account that spreads malware. Defanged, no files.
+title: "[lead] "
+labels: ["lead", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Defang every indicator** (`hxxps://example[.]com`, `1.2.3[.]4`). No files, no personal data, no stolen data.
+        We only run passive checks on leads (DNS, registration data, public scan and IOC databases). Everything here is public:
+        for an active campaign where a public post could tip off the operator, use the private channel in SECURITY.md instead.
+  - type: textarea
+    id: indicator
+    attributes:
+      label: Indicator(s)
+      description: One per line, defanged.
+      placeholder: hxxps://fake-app-download[.]example/setup
+    validations:
+      required: true
+  - type: dropdown
+    id: type
+    attributes:
+      label: Indicator type
+      options:
+        - Domain
+        - URL
+        - IP address
+        - Social media account / post
+        - Video or ad
+        - App or extension listing
+        - Other
+    validations:
+      required: true
+  - type: input
+    id: impersonates
+    attributes:
+      label: What it impersonates
+      description: Brand, software or service the lure pretends to be.
+    validations:
+      required: true
+  - type: input
+    id: first_seen
+    attributes:
+      label: First seen (optional)
+      placeholder: 2026-11-18
+    validations:
+      required: false
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Public evidence links
+      description: urlscan, VirusTotal, sandbox reports, archived pages. Links only, no uploads.
+    validations:
+      required: true
+  - type: textarea
+    id: context
+    attributes:
+      label: Context (optional)
+      description: How you came across it, what it delivers, anything that helps.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: All indicators are defanged and I attached no files.
+          required: true
+        - label: This report contains no personal data (including victims') and no stolen data.
+          required: true
+        - label: I understand this issue is public and that technical results may be published under CC0.
+          required: true

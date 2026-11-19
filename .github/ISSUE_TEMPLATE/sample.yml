@@ -1,0 +1,73 @@
+name: Sample (by hash)
+description: A malware file you already uploaded to MalwareBazaar or tria.ge. Hash and link only, never the file.
+title: "[sample] "
+labels: ["sample", "new"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        **Hashes and links only.** Upload the file yourself to [MalwareBazaar](https://bazaar.abuse.ch/) (preferred) or [tria.ge](https://tria.ge/) first.
+        Do **not** attach files to this issue: GitHub serves attachments publicly. Do **not** include personal or stolen data.
+        Everything you write here is public. Defang URLs: `hxxps://example[.]com/x`.
+  - type: input
+    id: sha256
+    attributes:
+      label: SHA-256
+      description: 64 hex characters of the file you uploaded.
+      placeholder: e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    validations:
+      required: true
+  - type: input
+    id: hosted
+    attributes:
+      label: Public sample link
+      description: The MalwareBazaar or tria.ge page of this file.
+      placeholder: https://bazaar.abuse.ch/sample/<sha256>/
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options:
+        - Windows
+        - macOS
+        - Linux
+        - Android
+        - iOS
+        - Cross-platform / script
+        - Unknown
+    validations:
+      required: true
+  - type: textarea
+    id: where
+    attributes:
+      label: Where it was found
+      description: Site, ad, video, message type, download page. Defanged URLs only. No names or contact details of people.
+    validations:
+      required: true
+  - type: textarea
+    id: lure
+    attributes:
+      label: Lure / context
+      description: What the file pretends to be, how victims are led to it, first seen date.
+    validations:
+      required: false
+  - type: textarea
+    id: links
+    attributes:
+      label: Public references (optional)
+      description: Public sandbox reports, VirusTotal, urlscan, write-ups.
+    validations:
+      required: false
+  - type: checkboxes
+    id: confirm
+    attributes:
+      label: Confirmations
+      options:
+        - label: This report contains no personal data (mine or anyone else's) and no stolen data (credentials, stealer logs, leaks).
+          required: true
+        - label: I uploaded the file to a public malware repository myself (or it was already there), and I did not attach any file here.
+          required: true
+        - label: I understand this issue is public and that technical results (hashes, IOCs) may be published under CC0.
+          required: true

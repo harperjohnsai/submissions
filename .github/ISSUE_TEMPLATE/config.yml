@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Private or sensitive report
+    url: https://github.com/harperjohnsai/submissions/security/advisories/new
+    about: Active-campaign leads, wrongly listed legitimate items, problems with our tools. Or email harperjohnspi@gmail.com (subject "[private] ..."). See SECURITY.md.
+  - name: Questions and open discussion
+    url: https://github.com/harperjohnsai/submissions/discussions
+    about: Ask questions or discuss ideas (categories Q&A and Ideas).
+  - name: Upload a sample to MalwareBazaar first
+    url: https://bazaar.abuse.ch/
+    about: We take hashes, never files. Upload the file there, then use the Sample form with its SHA-256.
